@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react'
 
 function Home() {
     const [movies, setMovies] = useState()
+    const [topMovies, setTopMovie] = useState()
     useEffect(() => {
         async function getMovies() {
             const { data: { results }
@@ -17,14 +18,26 @@ function Home() {
             setMovies(results[5])
 
             console.log(results)
+        }
 
+        async function getMovie() {
+            const { data: { results }
+            } = await api.get('/movie/top_rate')
 
+            setTopMovie(results[5])
 
+            console.log(results)
         }
 
 
 
+
+
+
+
+
         getMovies()
+        getMovie()
     }, [])
 
 
