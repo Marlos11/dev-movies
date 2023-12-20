@@ -5,13 +5,16 @@
 import Button from '../../components/Button'
 import Slider from '../../components/Slider'
 import api from '../../server/api'
-import {getImage} from '../../utils/getImage'
+import { getImage } from '../../utils/getImage'
 import { Background, Conteiner, Info, Poster, ConteinerButtons } from './styles'
 import { useState, useEffect } from 'react'
 
 function Home() {
     const [movies, setMovies] = useState()
     const [topMovies, setTopMovie] = useState()
+    const [topSeries, setTopSeries] = useState()
+    const [popularSeries, setPopularSeries] = useState()
+    const [popularArtists, setPopularArtists] = useState()
     useEffect(() => {
         async function getMovies() {
             const { data: { results }
@@ -19,7 +22,7 @@ function Home() {
 
             setMovies(results[5])
 
-           /*  console.log(results) */
+
         }
 
         async function getTopMovie() {
@@ -31,13 +34,32 @@ function Home() {
             console.log(results)
         }
 
+        async function getTopSeries() {
+            const { data: { results }
+            } = await api.get('/tv/top_rated')
+
+            setTopSeries(results)
+        }
+        async function getPopularSeries() {
+            const { data: { results }
+            } = await api.get('/tv/popular')
+
+            setPopularSeries(results)
+        }
+        async function getPopularArtist() {
+            const { data: { results }
+            } = await api.get('/person/popular')
+
+            setPopularArtists(results)
+        }
 
 
 
 
 
-
-
+        getPopularArtist()
+        getPopularSeries()
+        getTopSeries()
         getMovies()
         getTopMovie()
     }, [])
@@ -70,6 +92,9 @@ function Home() {
                 </Background>
             )}
             {topMovies && <Slider info={topMovies} title={'Top Filmes'} />}
+            {topSeries && <Slider info={topSeries} title={'Top Series'} />}
+            {popularSeries && <Slider info={popularSeries} title={'Popular Series'} />}
+            {popularArtists&& <Slider info={popularArtists} title={'Popular Artistas'} />}
         </>
     )
 }
