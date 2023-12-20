@@ -5,6 +5,7 @@
 import Button from '../../components/Button'
 import Slider from '../../components/Slider'
 import api from '../../server/api'
+import {getImage} from '../../utils/getImage'
 import { Background, Conteiner, Info, Poster, ConteinerButtons } from './styles'
 import { useState, useEffect } from 'react'
 
@@ -50,8 +51,7 @@ function Home() {
 
         <>
             {movies && (
-                <Background img={`https://image.tmdb.org/t/p/original${movies.backdrop_path
-                    }`}>
+                <Background img={getImage(movies.backdrop_path)}>
                     <Conteiner>
                         <Info>
                             <h1>{movies.title}</h1>
@@ -63,7 +63,7 @@ function Home() {
                             </ConteinerButtons>
                         </Info>
                         <Poster>
-                            < img src={`https://image.tmdb.org/t/p/original${movies.poster_path}`} />
+                            < img src={getImage(movies.poster_path)} />
                         </Poster>
 
                     </Conteiner>
