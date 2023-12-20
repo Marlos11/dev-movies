@@ -3,6 +3,7 @@
 
 
 import Button from '../../components/Button'
+import Slider from '../../components/Slider'
 import api from '../../server/api'
 import { Background, Conteiner, Info, Poster, ConteinerButtons } from './styles'
 import { useState, useEffect } from 'react'
@@ -17,14 +18,14 @@ function Home() {
 
             setMovies(results[5])
 
-            console.log(results)
+           /*  console.log(results) */
         }
 
-        async function getMovie() {
+        async function getTopMovie() {
             const { data: { results }
-            } = await api.get('/movie/top_rate')
+            } = await api.get('/movie/top_rated')
 
-            setTopMovie(results[5])
+            setTopMovie(results)
 
             console.log(results)
         }
@@ -37,7 +38,7 @@ function Home() {
 
 
         getMovies()
-        getMovie()
+        getTopMovie()
     }, [])
 
 
@@ -68,6 +69,7 @@ function Home() {
                     </Conteiner>
                 </Background>
             )}
+            {topMovies && <Slider info={topMovies} title={'Top Filmes'} />}
         </>
     )
 }
