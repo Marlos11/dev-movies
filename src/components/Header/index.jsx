@@ -1,26 +1,45 @@
- import { Menu, Conteiner, Li } from "./styles";
+import { Menu, Conteiner , Li } from "./styles";
 import Logo from '../../assets/logo.png'
-import { Link } from "react-router-dom";
- 
+import { Link,  useLocation  } from "react-router-dom";
+import { useState } from "react"; 
+
+
+
 
 
 function Header() {
-    return(
+   const [changeBackGround, setChangeBackGround] = useState(false)
+    const { pathname } = useLocation() 
 
-    <Conteiner>
-      {  <img src={Logo} alt="" /> }
-        <Menu>
-            <Li>
-                <Link to="/"> Home</Link>
-            </Li>
-            <Li>
-                <Link to="/series">Séries</Link>
-            </Li>
-            <Li>
-                <Link to="/movies">Filmes</Link>
-            </Li>
-        </Menu>
-    </Conteiner>
+    window.onscroll = () => {
+       if(! changeBackGround && window.pageYOffset>150){
+        setChangeBackGround(true)
+       }
+
+       if(changeBackGround && window.pageYOffset <=150){
+        setChangeBackGround(false)
+       }
+    }
+    return (
+
+        <Conteiner background={changeBackGround}>
+
+            <Link to="/" >
+                {<img src={Logo} alt="" />}
+
+            </Link>
+            <Menu>
+                <Li isActive={pathname === '/'}>
+                    <Link to="/"> Home</Link>
+                </Li>
+                <Li isActive={pathname.includes('series')}>
+                    <Link to="/series">Séries</Link>
+                </Li>
+                <Li isActive={pathname.includes('movies')}>
+                    <Link to="/movies">Filmes</Link>
+                </Li>   
+            </Menu>
+        </Conteiner>
     )
 }
 
