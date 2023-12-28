@@ -11,6 +11,7 @@ import { Background, Conteiner, Info, Poster, ConteinerButtons } from './styles'
 import { useState, useEffect } from 'react'
 
 function Home() {
+    const [showModal, setShowModal] = useState(false)
     const [movies, setMovies] = useState()
     const [topMovies, setTopMovie] = useState()
     const [topSeries, setTopSeries] = useState()
@@ -75,7 +76,7 @@ function Home() {
         <>
             {movies && (
                 <Background img={getImage(movies.backdrop_path)}>
-                    <Modal movieId={movies.id}/>
+                    {showModal && <Modal movieId={movies.id} setShowModal={setShowModal} />}
                     <Conteiner>
                         <Info>
                             <h1>{movies.title}</h1>
@@ -83,7 +84,8 @@ function Home() {
                             <p>{movies.overview}</p>
                             <ConteinerButtons>
                                 <Button red={true}>Assita Agora </Button>
-                                <Button red={false}>Assistir ao trailer</Button>
+                                <Button onClick={() => setShowModal(true)}
+                                    red={false}>Assistir ao trailer</Button>
                             </ConteinerButtons>
                         </Info>
                         <Poster>
@@ -96,7 +98,7 @@ function Home() {
             {topMovies && <Slider info={topMovies} title={'Top Filmes'} />}
             {topSeries && <Slider info={topSeries} title={'Top Series'} />}
             {popularSeries && <Slider info={popularSeries} title={'Popular Series'} />}
-            {popularArtists&& <Slider info={popularArtists} title={'Popular Artistas'} />}
+            {popularArtists && <Slider info={popularArtists} title={'Popular Artistas'} />}
         </>
     )
 }
