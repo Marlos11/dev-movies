@@ -4,7 +4,7 @@ import { BtnWatchMovies, BtnWatchTrailer } from "./styles"
 function Button({ children, red, ...rest }) {
     return (
         <>
-            {red ? (<BtnWatchMovies>{children}</BtnWatchMovies>) : 
+            {red ? (<BtnWatchMovies {...rest}>{children}</BtnWatchMovies>) : 
             (<BtnWatchTrailer {...rest}>{children}</BtnWatchTrailer>)}
         </>
 
