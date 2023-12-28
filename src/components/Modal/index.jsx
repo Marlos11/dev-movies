@@ -5,7 +5,7 @@ import api from "../../server/api"
 
 
 // eslint-disable-next-line react/prop-types
-function Modal({ movieId }) {
+function Modal({ movieId,setShowModal }) {
 
     const [movie, setMovie] = useState()
     useEffect(() => {
@@ -23,7 +23,7 @@ function Modal({ movieId }) {
     },[])
 
     return (
-        <Background>
+        <Background onClick={()=>setShowModal(false)}>
             {movie && (
 
 
