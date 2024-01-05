@@ -6,7 +6,7 @@ import Button from '../../components/Button'
 import Modal from '../../components/Modal'
 import Slider from '../../components/Slider'
 
-import  { getMovies,getPopularArtist,getPopularSeries,getTopSeries,getTopMovie } from '../../server/getData'
+import { getMovies, getPopularArtist, getPopularSeries, getTopSeries, getTopMovie } from '../../server/getData'
 import { useNavigate } from 'react-router-dom'
 import { getImage } from '../../utils/getImage'
 import { Background, Conteiner, Info, Poster, ConteinerButtons } from './styles'
@@ -24,8 +24,36 @@ function Home() {
     const navigate = useNavigate()
 
     useEffect(() => {
-       
-       async function getAllData (){
+
+
+        async function getAllData() {
+            Promise.all([
+                getMovies(),
+                getTopMovie(),
+                getTopSeries(),
+                getPopularSeries(),
+                getPopularArtist()
+            ])
+                .then(([movie, topMovie, topSeries, popularSeries, popularArtist]) => {
+
+                    setMovies(movie)
+                    setTopMovie(topMovie)
+                    setTopSeries(topSeries)
+                    setPopularSeries(popularSeries)
+                    setPopularArtists(popularArtist)
+                })
+                .catch((error => console.log.error(error)))
+        }
+        getAllData()
+
+
+
+
+
+
+
+
+        /*  async function getAllData (){
         setMovies(await getMovies())
         setTopMovie(await getTopMovie())
         setTopSeries(await getTopSeries())
@@ -35,9 +63,9 @@ function Home() {
 
             }
 
-            getAllData()
+            getAllData() */
 
-        
+
     }, [])
 
 

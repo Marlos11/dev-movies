@@ -4,7 +4,7 @@ export async function getMovies() {
     const { data: { results }
     } = await api.get('/movie/popular')
 
-return results[0]
+    return results[0]
 }
 
 export async function getTopMovie() {
@@ -21,7 +21,7 @@ export async function getTopSeries() {
     return results
 }
 
-export  async function getPopularSeries() {
+export async function getPopularSeries() {
     const { data: { results }
     } = await api.get('/tv/popular')
 
@@ -35,9 +35,28 @@ export async function getPopularArtist() {
     return results
 }
 
-export async function getMovie(movieId) {
+export async function getMovieVideos(movieId) {
     const { data: { results }
     } = await api.get(`/movie/${movieId}/videos`)
 
-    return results[0]
+    return results
+}
+
+
+export async function getMoviesCredits(movieId) {
+    const {data} = await api.get(`/movie/${movieId}/credits`)
+
+    return data
+}
+
+export async function getMoviesSimilar(movieId) {
+    const { data: { results }
+    } = await api.get(`movie/${movieId}/similar`)
+
+    return results
+}
+
+export async function getMoviesById(movieId) {
+    const {data} = await api.get(`movie/${movieId}`)
+    return data
 }
