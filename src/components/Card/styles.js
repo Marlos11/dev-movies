@@ -7,9 +7,9 @@ export const Conteiner = styled.div`
     align-items: center;
 
 img{
-    width: 300px;
+     width: 300px;
     height: 100%;
-    border-radius: 30px;
+    border-radius: 30px; 
 }
 
 h3{

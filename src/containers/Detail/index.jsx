@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Conteiner } from "./styles";
+import { Conteiner, Background, Cover } from "./styles";
 import { useParams } from 'react-router-dom'
-import {getMovieVideos, getMoviesById, getMoviesCredits, getMoviesSimilar, } from '../../server/getData'
+import { getMovieVideos, getMoviesById, getMoviesCredits, getMoviesSimilar, } from '../../server/getData'
+import { getImage } from '../../utils/getImage'
 
 function Detail() {
 
@@ -19,7 +20,7 @@ function Detail() {
                 getMovieVideos(id),
                 getMoviesCredits(id),
                 getMoviesSimilar(id),
-               
+
             ])
 
                 .then(([movie, videos, credits, similar,]) => {
@@ -41,9 +42,21 @@ function Detail() {
 
 
     return (
-        <Conteiner>
-            <div>Detalhes</div>
-        </Conteiner>
+
+        <>
+            {movie   &&(
+                <>
+                   <Background image={getImage(movie.backdrop_path)} />
+                    <Conteiner>
+                        <Cover>
+                            <img src={getImage(movie.poster_path)} />
+                        </Cover>
+                        <div>Detalhes</div>
+                    </Conteiner>
+                </>
+
+            )}
+        </>
     )
 }
 
