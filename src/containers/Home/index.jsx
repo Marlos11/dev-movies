@@ -42,7 +42,7 @@ function Home() {
                     setPopularSeries(popularSeries)
                     setPopularArtists(popularArtist)
                 })
-                .catch((error => console.log.error(error)))
+                .catch((error => (error)))
         }
         getAllData()
 
