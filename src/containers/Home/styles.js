@@ -13,7 +13,7 @@ to{
 `
 
 export const Background = styled.div`
-    background-image: url(${props => props.img});
+    background-image: url(${(props) => props.img});
     background-position: center;
     background-size:cover;
     display: flex;
@@ -60,13 +60,13 @@ padding: 1.25px;
 width: 50%;
 
 h1{
-    font-size: 2.8;
+    font-size: 2.8rem;
     font-weight: 700;
     color: #ffffff;
 }
 
 p{
-    font-size: 1.25;
+    font-size: 1.25rem;
     font-weight: 500;
     color: #ffffff;
     margin-top: 30px;

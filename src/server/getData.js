@@ -60,4 +60,5 @@ export async function getMoviesSimilar(movieId) {
 export async function getMoviesById(movieId) {
     const {data} = await api.get(`movie/${movieId}`)
     return data
-}
+} 
+
