@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 
+
 const scale = keyframes`
 
 from{

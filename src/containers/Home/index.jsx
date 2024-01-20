@@ -53,7 +53,7 @@ function Home() {
 
 
 
-        /* async function getAllData (){
+       /*  async function getAllData (){
         setMovies(await getMovies())
         setTopMovie(await getTopMovie())
         setTopSeries(await getTopSeries())
@@ -65,7 +65,7 @@ function Home() {
 
             getAllData() 
 
- */
+  */
     }, [])
 
 
