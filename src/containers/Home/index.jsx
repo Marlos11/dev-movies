@@ -26,7 +26,7 @@ function Home() {
     useEffect(() => {
 
 
-       async function getAllData() {
+        async function getAllData() {
             Promise.all([
                 getMovies(),
                 getTopMovie(),
@@ -45,28 +45,28 @@ function Home() {
                 .catch((error => (error)))
         }
         getAllData()
- 
-
-
-
-
-
-
-
-       /*  async function getAllData (){
-        setMovies(await getMovies())
-        setTopMovie(await getTopMovie())
-        setTopSeries(await getTopSeries())
-        setPopularSeries(await getPopularSeries())
-        setPopularArtists(await getPopularArtist())
-        
-
-            }
-
-            getAllData() 
-
-  */
     }, [])
+
+
+
+
+
+
+
+
+    /*  async function getAllData (){
+     setMovies(await getMovies())
+     setTopMovie(await getTopMovie())
+     setTopSeries(await getTopSeries())
+     setPopularSeries(await getPopularSeries())
+     setPopularArtists(await getPopularArtist())
+     
+
+         }
+
+         getAllData() 
+
+*/
 
 
 
@@ -77,8 +77,8 @@ function Home() {
 
         <>
             {movies && (
-               
-               <Background image={getImage(movies.backdrop_path)}>
+
+                <Background img={getImage(movies.backdrop_path)}>
                     {showModal && <Modal movieId={movies.id} setShowModal={setShowModal} />}
                     <Conteiner>
                         <Info>

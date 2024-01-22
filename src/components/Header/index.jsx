@@ -29,13 +29,13 @@ function Header() {
 
             </Link>
             <Menu>
-                <Li isActive={pathname === '/'}>
+                <Li active={pathname === '/'}>
                     <Link to="/"> Home</Link>
                 </Li>
-                <Li isActive={pathname.includes('series')}>
+                <Li active={pathname.includes('series')}>
                     <Link to="/series">Séries</Link>
                 </Li>
-                <Li isActive={pathname.includes('movies')}>
+                <Li active={pathname.includes('movies')}>
                     <Link to="/movies">Filmes</Link>
                 </Li>   
             </Menu>

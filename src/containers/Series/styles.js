@@ -12,11 +12,12 @@ to{
 `
 export const Container = styled.div`
 
-display: flex;
+    display: flex;
     justify-content: space-around;
     align-items: center;
     height: 100%;
-    max-width: 1440px;
+    width: 100%;
+    max-width: 2000px;
 
 `
 export const Background = styled.div`
@@ -28,6 +29,7 @@ height: 100vh;
 display: flex;
 align-items: center;
 justify-content: center;
+position: relative;
   
 
 

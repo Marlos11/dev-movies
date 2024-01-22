@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react"
-import api from "../../server/api"
+import { getSeries, getTopSeries } from "../../server/getData"
 import { Background, Container, Poster, Info, ConteinerButtons } from "./styles"
 import Button from "../../components/Button"
 import { getImage } from "../../utils/getImage"
+import Slider from "../../components/Slider"
 /* import { Navigate } from "react-router-dom"
  */
 /* 
@@ -13,19 +14,26 @@ const navigate = Navigate() */
 function Series() {
 
     const [serie, setSerie] = useState()
+    console.log(serie)
+    const [topSerie, setTopSerie] = useState()
 
 
     useEffect(() => {
 
-        async function getSerie() {
-            const { data: { results } } = await api.get('/tv/top_rated')
+        async function getAllData() {
+            Promise.all([
+                getSeries(),
+                getTopSeries()
+            ])
+                .then(([series, topSeries]) => {
+                    setSerie(series)
+                    setTopSerie(topSeries)
+                })
 
 
-            setSerie(results[5])
-
-            /*   */
+                .catch((error => (error)))
         }
-        getSerie()
+        getAllData()
     }, [])
 
 
@@ -36,8 +44,8 @@ function Series() {
     return (
         <>
             {serie && (
-                <Container>
-                    <Background img={getImage(serie.backdrop_path)}>
+                <Background img={getImage(serie.backdrop_path)}>
+                    <Container>
                         <Info>
                             <h1>{serie.name}</h1>
                             <p>{serie.overview}</p>
@@ -52,10 +60,11 @@ function Series() {
                             <img src={getImage(serie.poster_path)} alt="capa do filme" />
                         </Poster>
 
-                    </Background>
-                </Container>
+                    </Container>
+                </Background>
 
             )}
+            {topSerie && <Slider info={topSerie} title={'Top Séries'} />}
         </>
 
 
