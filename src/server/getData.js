@@ -27,6 +27,13 @@ export async function getPopularSeries() {
 
     return results
 }
+export async function getSeries() {
+    const { data: { results }
+    } = await api.get('/tv/popular')
+
+    return results[0]
+}
+
 
 export async function getPopularArtist() {
     const { data: { results }

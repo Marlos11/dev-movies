@@ -7,7 +7,7 @@ justify-content: space-between;
  position: fixed;
 top: 0; 
 z-index: 1;
-background-color: ${props => props.background ? '#000' : 'transparent'};
+background-color: ${(props)=> props.background ? '#000' : 'transparent'};
 transition: background-color 0.5s ease-in-out;
 
 
@@ -50,7 +50,7 @@ export const Li = styled.li`
  &::after{
             content: '';
             height:3px;
-            width: ${(props) => (props.isActive ? '100%' : '0')};
+            width: ${(props) => (props.active ? '100%' : '0')};
             background-color: #189b20;
             position: absolute;
             left: 50%;

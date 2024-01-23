@@ -15,7 +15,7 @@ const scale = keyframes`
 
 export const Container = styled.div`
 
-display: flex;
+    display: flex;
     justify-content: space-around;
     align-items: center;
     height: 100%;
