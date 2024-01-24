@@ -4,6 +4,7 @@ import { Background, Container, Poster, Info, ConteinerButtons } from "./styles"
 import Button from "../../components/Button"
 import { getImage } from "../../utils/getImage"
 import Slider from "../../components/Slider"
+import ModalSerie from "../../components/ModalSeries"
 /* import { Navigate } from "react-router-dom"
  */
 /* 
@@ -16,6 +17,7 @@ function Series() {
     const [serie, setSerie] = useState()
     console.log(serie)
     const [topSerie, setTopSerie] = useState()
+    const [showModal,setShowModal] = useState(false)
 
 
     useEffect(() => {
@@ -45,15 +47,16 @@ function Series() {
         <>
             {serie && (
                 <Background img={getImage(serie.backdrop_path)}>
+                      {showModal && <ModalSerie serieVideoId={serie.id} setShowModal={setShowModal} />}
                     <Container>
                         <Info>
                             <h1>{serie.name}</h1>
                             <p>{serie.overview}</p>
                             <ConteinerButtons>
-                                <Button red={true} onClick={() => navigate(`/detalhes/${serie.id}`)}>
+                                <Button red={true} onClick={() => (`/detalhes/${serie.id}`)}>
                                     Assita Agora </Button>
-                                <Button red={false} onClick={() => navigate(`/detalhes/${serie.id}`)}>
-                                    Assita Agora </Button>
+                                <Button red={false} onClick={() => setShowModal(true)}>
+                                   Assita ao trailer </Button>
                             </ConteinerButtons>
                         </Info>
                         <Poster>
