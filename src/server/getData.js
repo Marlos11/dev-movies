@@ -48,9 +48,15 @@ export async function getMovieVideos(movieId) {
 
     return results
 }
+<<<<<<< HEAD
 export async function getSerieVideos(serieId) {
     const { data: { results }
     } = await api.get(`/tv/${serieId}/videos`)
+=======
+export async function getSeriesVideos(serieVideoId) {
+    const { data: { results }
+    } = await api.get(`/tv/${serieVideoId}/videos`)
+>>>>>>> e62f67835313ff665d2e82a1a619b488269a766b
 
     return results
 }

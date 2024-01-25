@@ -9,6 +9,7 @@ import {  getMovieVideos } from "../../server/getData"
 function Modal({ movieId,setShowModal }) {
 console.log(movieId,`toaqui`)
     const [movie, setMovie] = useState()
+    
     useEffect(() => {
         async function getMovies() {
             

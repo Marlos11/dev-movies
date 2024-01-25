@@ -7,6 +7,7 @@ import Button from "../../components/Button"
 import { ConteinerButtons } from "../Home/styles"
 import { getMovies, getTopMovie } from "../../server/getData"
 import Slider from "../../components/Slider"
+import Modal from "../../components/Modal"
 
 
 
@@ -19,6 +20,7 @@ function Movies() {
 
     const [movies, setMovies] = useState()
     const [topMovies, setTopMovies] = useState()
+    const [showModal, setShowModal] = useState()
 
     console.log(movies)
 
@@ -45,6 +47,7 @@ function Movies() {
             ({movies &&
 
                 <Background img={getImage(movies.backdrop_path)}>
+                    {showModal && <Modal movieId={movies.id} setShowModal={setShowModal} />}
                     <Container>
                         <Info>
 
@@ -53,7 +56,7 @@ function Movies() {
                             <ConteinerButtons>
                                 <Button red={true} onClick={() => navigate(`/detalhes/${movies.id}`)}>
                                     Assita Agora </Button>
-                                <Button red={false} onClick={() => navigate(`/detalhes/${movies.id}`)}>
+                                <Button red={false} onClick={() => setShowModal(true)}>
                                     Assistir ao trailer </Button>
                             </ConteinerButtons>
                         </Info>
@@ -63,7 +66,7 @@ function Movies() {
                             <img src={getImage(movies.poster_path)} alt="capa-filme" />
                         </Poster>
                     </Container>
-                </Background>
+                </Background >
 
 
 
