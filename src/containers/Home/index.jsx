@@ -100,8 +100,8 @@ function Home() {
                 </Background>
             )}
             {topMovies && <Slider info={topMovies} title={'Top Filmes'} />}
-            {topSeries && <Slider info={topSeries} title={'Top Series'} />}
-            {popularSeries && <Slider info={popularSeries} title={'Popular Series'} />}
+            {topSeries && <Slider info={topSeries} title={'Top Séries'} />}
+            {popularSeries && <Slider info={popularSeries} title={'Popular Séries'} />}
             {popularArtists && <Slider info={popularArtists} title={'Popular Artistas'} />}
         </>
     )
