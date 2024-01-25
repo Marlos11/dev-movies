@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react"
 import { Background, Container } from "./styles"
 
-import {  getMovieVideos } from "../../server/getData"
+import {  getSerieVideos } from "../../server/getData"
 
 
 
 // eslint-disable-next-line react/prop-types
-function Modal({ movieId,setShowModal }) {
-console.log(movieId,`toaqui`)
-    const [movie, setMovie] = useState()
+function Modalserie({ serieId,setShowModal }) {
+console.log(serieId,`to aqui `)
+    const [serie, setSerie] = useState()
     useEffect(() => {
         async function getMovies() {
             
 
-            setMovie(await getMovieVideos(movieId))
+            setSerie(await getSerieVideos(serieId))
 
 
         }
@@ -24,12 +24,12 @@ console.log(movieId,`toaqui`)
 
     return (
         <Background onClick={()=>setShowModal(false)}>
-            {movie && (
+            {serie && (
 
 
                 <Container >
                     <iframe
-                        src={`http://www.youtube.com/embed/${movie[0].key}`}
+                        src={`http://www.youtube.com/embed/${serie.key}`}
                         title="YouTube Video Player "
                         height={'500px'}
                         width={"100%"}
@@ -40,4 +40,4 @@ console.log(movieId,`toaqui`)
     )
 }
 
-export default Modal 
+export default Modalserie 

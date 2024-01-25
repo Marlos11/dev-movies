@@ -31,7 +31,7 @@ export async function getSeries() {
     const { data: { results }
     } = await api.get('/tv/popular')
 
-    return results[0]
+    return results[1]
 }
 
 
@@ -45,6 +45,12 @@ export async function getPopularArtist() {
 export async function getMovieVideos(movieId) {
     const { data: { results }
     } = await api.get(`/movie/${movieId}/videos`)
+
+    return results
+}
+export async function getSerieVideos(serieId) {
+    const { data: { results }
+    } = await api.get(`/tv/${serieId}/videos`)
 
     return results
 }
