@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { getSeries, getTopSeries } from "../../server/getData"
 import { Background, Container, Poster, Info, ConteinerButtons } from "./styles"
-import Button from "../../components/Button"
+/* import Button from "../../components/Button" */
 import { getImage } from "../../utils/getImage"
 import Slider from "../../components/Slider"
 
@@ -59,11 +59,11 @@ function Series() {
                             <p>{serie.overview}</p>
                             <ConteinerButtons>
 
-                                <Button red={true} onClick={() => navigate(`/detalhes/${serie.id}`)}>
+                               {/*  <Button red={true} onClick={() => navigate(`/detalhes/${serie.id}`)}>
                                     Assita Agora </Button>
 
                                 <Button red={false} onClick={() => SetShowModal(true)}>
-                                    Assita ao trailer </Button>
+                                    Assita ao trailer </Button> */}
                             </ConteinerButtons>
                         </Info>
                         <Poster>

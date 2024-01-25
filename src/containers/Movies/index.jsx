@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import { Container, Background, Info, Poster } from "./styles"
 
 import { getImage } from "../../utils/getImage"
-import Button from "../../components/Button"
+/* import Button from "../../components/Button" */
 import { ConteinerButtons } from "../Home/styles"
 import { getMovies, getTopMovie } from "../../server/getData"
 import Slider from "../../components/Slider"
@@ -54,10 +54,10 @@ function Movies() {
                             <h1>{movies.title}</h1>
                             <p>{movies.overview}</p>
                             <ConteinerButtons>
-                                <Button red={true} onClick={() => navigate(`/detalhes/${movies.id}`)}>
+                              {/*   <Button red={true} onClick={() => navigate(`/detalhes/${movies.id}`)}>
                                     Assita Agora </Button>
                                 <Button red={false} onClick={() => setShowModal(true)}>
-                                    Assistir ao trailer </Button>
+                                    Assistir ao trailer </Button> */}
                             </ConteinerButtons>
                         </Info>
 
