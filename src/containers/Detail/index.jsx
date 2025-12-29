@@ -67,7 +67,7 @@ function Detail() {
                             <div key={video.id}>
                                 <h4>{video.name}</h4>
                                 <iframe
-                                    src={`http://www.youtube.com/embed/${video.key}`}
+                                    src={`https://www.youtube.com/embed/${video.key}`}
                                     title="YouTube Video Player "
                                     height={'500px'}
                                     width={"100%"}
