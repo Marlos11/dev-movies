@@ -10,7 +10,6 @@ import { getSerieVideos } from "../../server/getData"
 
 // eslint-disable-next-line react/prop-types
 function Modalserie({ setShowModal,serieId }) {
-    console.log(serieId, `to aqui `)
     const [serie, setSerie] = useState()
     useEffect(() => {
         async function getMovies() {
@@ -34,7 +33,7 @@ function Modalserie({ setShowModal,serieId }) {
 
                 <Container >
                     <iframe
-                        src={`http://www.youtube.com/embed/${serie.key}`}
+                        src={`https://www.youtube.com/embed/${serie.key}`}
 
                         title="YouTube Video Player "
                         height={'500px'}
