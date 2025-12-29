@@ -22,20 +22,20 @@ function Header() {
     }
     return (
 
-        <Conteiner background={changeBackGround}>
+        <Conteiner $background={changeBackGround}>
 
             <Link to="/" >
                 {<img src={Logo} alt="" />}
 
             </Link>
             <Menu>
-                <Li active={pathname === '/'}>
+                <Li $active={pathname === '/'}>
                     <Link to="/"> Home</Link>
                 </Li>
-                <Li active={pathname.includes('series')}>
+                <Li $active={pathname.includes('series')}>
                     <Link to="/series">Séries</Link>
                 </Li>
-                <Li active={pathname.includes('movies')}>
+                <Li $active={pathname.includes('movies')}>
                     <Link to="/movies">Filmes</Link>
                 </Li>   
             </Menu>
